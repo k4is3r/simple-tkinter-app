@@ -60,3 +60,7 @@ runApps = tk.Button(
 runApps.pack()
 #to run the app and state open
 root.mainloop()
+
+with open('save.txt', 'w') as f:
+    for add in apps:
+        f.write(app + ',')
