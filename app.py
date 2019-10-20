@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog, Text
 import os
+import subprocess, sys
 
 
 root = tk.Tk()
@@ -24,6 +25,14 @@ def addApp():
         bg="gray")
         label.pack()
 
+def runApps():
+    for app in apps:
+        if sys.platform == "win32":
+            os.startfile(app)
+        else:
+            opener="open" if sys.platform == "darwin" else "xdg-open"
+            subprocess.call([opener,app])
+
 
 canvas = tk.Canvas(root, height=700, width=700, bg="#263D42")
 canvas.pack()
@@ -45,7 +54,8 @@ openFile.pack()
 runApps = tk.Button(
     root, text="Run",
     padx=10, pady=5,
-    bg="white", fg="#263D42"
+    bg="white", fg="#263D42",
+    command=runApps
 )
 runApps.pack()
 #to run the app and state open
