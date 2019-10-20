@@ -1,3 +1,7 @@
 .venv
 .vscode
 *.txt
+build/
+dist/
+cion.icns
+save.txt
