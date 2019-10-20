@@ -11,7 +11,8 @@ apps=[]
 if os.path.isfile('save.txt'):
     with open('save.txt', 'r') as f:
         tempApps = f.read()
-        print(tempApps)
+        tempApps = tempApps.split(',')
+        apps = [x for x in tempApps if x.strip()]
 
 #Button function
 def addApp():
@@ -64,6 +65,11 @@ runApps = tk.Button(
     command=runApps
 )
 runApps.pack()
+
+#adding apps when app start run
+for app in apps:
+    label = tk.Label(frame, text=app)
+    label.pack()
 #to run the app and state open
 root.mainloop()
 
