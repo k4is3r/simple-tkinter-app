@@ -8,6 +8,10 @@ apps=[]
 
 #Button function
 def addApp():
+
+    for widget in frame.winfo_children():
+        widget.destroy()
+
     filename = filedialog.askopenfilename(
         initialdir="/",
         title="Select File",
@@ -15,6 +19,10 @@ def addApp():
     )
     apps.append(filename)
     print(filename)
+    for app in apps:
+        label = tk.Label(frame, text=app,
+        bg="gray")
+        label.pack()
 
 
 canvas = tk.Canvas(root, height=700, width=700, bg="#263D42")
