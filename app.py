@@ -18,5 +18,12 @@ openFile = tk.Button(
     bg="white",fg="#263D42"
     )
 openFile.pack()
+
+runApps = tk.Button(
+    root, text="Run",
+    padx=10, pady=5,
+    bg="white", fg="#263D42"
+)
+runApps.pack()
 #to run the app and state open
 root.mainloop()
