@@ -4,14 +4,17 @@ import os
 
 
 root = tk.Tk()
+apps=[]
 
 #Button function
 def addApp():
     filename = filedialog.askopenfilename(
         initialdir="/",
         title="Select File",
-        filetypes=(("executables","*.exe"),("all files","*.*"))
+        filetypes=(("executables","*.app"),("all files","*.*"))
     )
+    apps.append(filename)
+    print(filename)
 
 
 canvas = tk.Canvas(root, height=700, width=700, bg="#263D42")
