@@ -7,6 +7,12 @@ import subprocess, sys
 root = tk.Tk()
 apps=[]
 
+#adding file save app
+if os.path.isfile('save.txt'):
+    with open('save.txt', 'r') as f:
+        tempApps = f.read()
+        print(tempApps)
+
 #Button function
 def addApp():
 
@@ -62,5 +68,5 @@ runApps.pack()
 root.mainloop()
 
 with open('save.txt', 'w') as f:
-    for add in apps:
+    for app in apps:
         f.write(app + ',')
